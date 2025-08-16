@@ -1,0 +1,108 @@
+:root {
+  /* Color System */
+  --mitra-blue: #3A5FCD;
+  --mitra-yellow: #FFD700;
+  --lush-green: #50C878;
+  --warm-orange: #FF7F50;
+  --warm-cream: #F5F5DC;
+  --charcoal-grey: #36454F;
+  
+  /* Extended Color Palette */
+  --mitra-blue-light: #5A7FED;
+  --mitra-blue-dark: #1A3FAD;
+  --mitra-yellow-light: #FFED4A;
+  --mitra-yellow-dark: #D4AF37;
+  --lush-green-light: #70D898;
+  --lush-green-dark: #30A858;
+  --warm-orange-light: #FF9F70;
+  --warm-orange-dark: #DF5F30;
+  
+  /* Neutral Colors */
+  --white: #FFFFFF;
+  --black: #000000;
+  --grey-50: #FAFAFA;
+  --grey-100: #F5F5F5;
+  --grey-200: #EEEEEE;
+  --grey-300: #E0E0E0;
+  --grey-400: #BDBDBD;
+  --grey-500: #9E9E9E;
+  --grey-600: #757575;
+  --grey-700: #616161;
+  --grey-800: #424242;
+  --grey-900: #212121;
+  
+  /* Magic Gradient */
+  --magic-gradient: linear-gradient(135deg, rgba(58, 95, 205, 0.3) 0%, rgba(255, 215, 0, 0.2) 50%, rgba(80, 200, 120, 0.1) 100%);
+  
+  /* Typography */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+  --font-size-xl: clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem);
+  --font-size-2xl: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);
+  --font-size-3xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  
+  --line-height-tight: 1.2;
+  --line-height-body: 1.5;
+  --line-height-relaxed: 1.625;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Animation */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Z-Index */
+  --z-floating: 10;
+  --z-header: 50;
+  --z-modal: 100;
+  
+  /* Container */
+  --container-max-width: 1200px;
+  --container-padding: var(--space-md);
+  
+  /* Breakpoints */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: var(--space-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: var(--space-2xl);
+  }
+}

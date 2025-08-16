@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&display=swap');
+@import './styles/variables.css';
+@import './styles/components.css';
+@import './styles/header.css';
+@import './styles/hero.css';
+@import './styles/floating-elements.css';
+@import './styles/how-it-works.css';
+@import './styles/stories-section.css';
+@import './styles/transformation-showcase.css';
+@import './styles/trust-bar.css';
+@import './styles/stories.css';
+@import './styles/story-detail.css';
+@import './styles/magic-figure.css';
+
+/* Reset and Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  color: var(--charcoal-grey);
+  background-color: var(--warm-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus Styles */
+*:focus {
+  outline: 2px solid var(--mitra-blue);
+  outline-offset: 2px;
+}
+
+/* Selection Styles */
+::selection {
+  background-color: var(--mitra-yellow);
+  color: var(--charcoal-grey);
+}
+
+/* Smooth scrolling for all scroll containers */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Print Styles */
+@media print {
+  .floating-elements,
+  .header__mobile-toggle,
+  .sparkle-effect {
+    display: none !important;
+  }
+  
+  .header {
+    position: static;
+    background: white;
+    border-bottom: 1px solid #000;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --charcoal-grey: #000000;
+    --grey-700: #000000;
+    --mitra-blue: #0000FF;
+    --mitra-yellow: #FFD700;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  }
+  
+  .btn {
+    border: 2px solid currentColor;
+  }
+}

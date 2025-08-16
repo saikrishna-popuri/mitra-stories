@@ -348,8 +348,8 @@
 @media (max-width: 767px) {
   .transformation-showcase {
     margin: var(--space-md) auto !important;
-    max-width: calc(100% - 20px) !important;
-    width: calc(100% - 20px) !important;
+    max-width: calc(100% - 19px) !important;
+    width: calc(100% - 19px) !important;
   }
 
   .transformation-showcase__container {
@@ -366,7 +366,7 @@
   }
 
   .transformation-showcase__display {
-    gap: var(--space-xs) !important;
+    gap: calc(var(--space-xs) * 1.05) !important;
     margin-bottom: 10px !important;
     justify-content: center !important;
   }
@@ -377,8 +377,8 @@
   }
 
   .transformation-showcase__avatar {
-    width: 67px !important;
-    height: 97px !important;
+    width: 70.35px !important;
+    height: 101.85px !important;
   }
 
   .transformation-showcase__avatars {

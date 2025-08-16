@@ -190,4 +190,8 @@
   .how-it-works__ctas {
     margin-top: 24px;
   }
+
+  .how-it-works__card {
+    min-height: 180px;
+  }
 }

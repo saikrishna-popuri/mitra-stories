@@ -11,9 +11,8 @@ const StoriesSection: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  useEffect(() => {
-    console.log('StoriesSection useEffect triggered.');
-    // Fetch stories from API
+  useEffect(() => { // Effect for data fetching
+    console.log('StoriesSection useEffect triggered for data fetching.');
     const fetchStories = async () => {
       console.log('Fetching stories...');
       try {
@@ -21,14 +20,12 @@ const StoriesSection: React.FC = () => {
         setError(null);
         const response = await storyAPI.getStoryMetadata();
         console.log('API response received:', response);
-        // Filter to show only the first 3 stories for the homepage
         if (response.data && response.data.length > 0) {
           const featuredStories = response.data.slice(0, 3);
           setStories(featuredStories);
           console.log('Stories set:', featuredStories);
         } else {
           console.warn('API returned no data, using fallback from StoriesSection catch block.');
-          // Fallback to hardcoded data if API returns empty or null data
           const fallbackStories = [
             {
               id: 'animal-sound-parade',
@@ -68,7 +65,6 @@ const StoriesSection: React.FC = () => {
         }
       } catch (error) {
         console.error('Error fetching stories in StoriesSection:', error);
-        // Fallback to hardcoded data
         const fallbackStories = [
           {
             id: 'animal-sound-parade',
@@ -116,7 +112,12 @@ const StoriesSection: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Intersection Observer for animations
+    console.log('StoriesSection useEffect triggered for animations. Stories count:', stories.length);
+    if (stories.length === 0) {
+      console.log('No stories to observe yet, skipping IntersectionObserver setup.');
+      return;
+    }
+
     const observers = cardsRef.current.map((card, index) => {
       if (!card) return null;
 
@@ -140,6 +141,7 @@ const StoriesSection: React.FC = () => {
     });
 
     return () => {
+      console.log('Disconnecting IntersectionObservers.');
       observers.forEach(observer => observer?.disconnect());
     };
   }, [stories]);
@@ -171,10 +173,10 @@ const StoriesSection: React.FC = () => {
         <h2 className="stories-section__heading">
           ✨ Our Bestsellers ✨
         </h2>
-        
+
         <div className="stories-section__grid">
           {stories.slice(0, 3).map((story, index) => (
-            <div 
+            <div
               key={story.id}
               ref={el => cardsRef.current[index] = el}
               className={`story-card ${visibleCards[index] ? 'story-card--visible' : ''}`}
@@ -190,7 +192,7 @@ const StoriesSection: React.FC = () => {
                   NEW!
                 </div>
               )}
-              
+
               {story.id === 'diwali-magic' ? (
                 <div className="story-card__cover story-card__cover--gradient">
                   <div className="story-card__diya">🪔</div>
@@ -202,14 +204,14 @@ const StoriesSection: React.FC = () => {
                 </div>
               ) : (
                 <div className="story-card__cover">
-                  <img 
-                    src={story.imageUrl || getDefaultImage(story.id)} 
+                  <img
+                    src={story.imageUrl || getDefaultImage(story.id)}
                     alt={story.title}
                     className="story-card__image"
                   />
                 </div>
               )}
-              
+
               <div className="story-card__content">
                 <div className="story-card__header">
                   <h3 className="story-card__title">{story.title}</h3>

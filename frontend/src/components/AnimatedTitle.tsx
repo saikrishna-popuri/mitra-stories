@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from 'react';
 
-const AnimatedTitle: React.FC = () => {
+interface AnimatedTitleProps {
+  onPhraseChange: (phrase: 'every' | 'your') => void;
+  onTransitionChange: (isTransitioning: boolean) => void;
+}
+
+const AnimatedTitle: React.FC<AnimatedTitleProps> = ({ onPhraseChange, onTransitionChange }) => {
   const [currentPhrase, setCurrentPhrase] = useState<'every' | 'your'>('every');
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
+      onTransitionChange(true);
       setIsTransitioning(true);
       
       setTimeout(() => {
-        setCurrentPhrase(prev => prev === 'every' ? 'your' : 'every');
+        setCurrentPhrase(prevPhrase => {
+          const newPhrase = prevPhrase === 'every' ? 'your' : 'every';
+          onPhraseChange(newPhrase);
+          return newPhrase;
+        });
         setIsTransitioning(false);
+        onTransitionChange(false);
       }, 750); // Trigger timing
-    }, 5250); // 4 seconds display + 1.5 second transition
+    }, 6000); // Extended to 6 seconds for more meditative effect
 
     return () => clearInterval(interval);
-  }, []);
+  }, [onPhraseChange, onTransitionChange]);
 
   const triggerSparkles = () => {
     if (isTransitioning) {

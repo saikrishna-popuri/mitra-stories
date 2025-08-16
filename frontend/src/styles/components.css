@@ -105,7 +105,7 @@
     rgba(255, 255, 255, 0.4),
     transparent
   );
-  transition: left 0.6s ease;
+  transition: left 0.5s ease;
 }
 
 .btn--sparkle:hover::before {
@@ -124,7 +124,8 @@
     rgba(255, 255, 255, 0.4),
     transparent
   );
-  animation: sparkle 3s infinite;
+  animation: sparkle 3s forwards;
+  animation-play-state: paused;
 }
 
 @keyframes sparkle {
@@ -145,7 +146,7 @@
 
 /* Ensure sparkle icons are visible */
 .sparkle-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
   z-index: 2;
   position: relative;
 }

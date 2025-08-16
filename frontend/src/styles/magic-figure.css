@@ -1,101 +1,39 @@
 /* Magic Figure Styles */
 .magic-figure-image {
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   object-fit: contain;
   opacity: 0;
   z-index: 15;
   
-  /* Position the figure near the edge of the book where sparkle appears */
-  top: -20px;
-  right: -30px;
+  /* Center the figure within the book cover */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.3);
   
-  /* Apply the magical appearance animation */
-  animation: magicFigureAppear 2s ease-in-out infinite;
+  /* Smooth transitions for visibility changes */
+  transition: opacity 2s var(--ease-smooth), transform 1.25s var(--ease-smooth);
+}
+
+/* Visible state when text shows "for Your Child" */
+.magic-figure-image--visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
   
-  /* Add a magical glow effect */
+  /* Add magical glow effect when visible */
   filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6))
           drop-shadow(0 0 30px rgba(58, 95, 205, 0.4));
-  
-  /* Ensure smooth transitions */
-  transition: all 0.3s var(--ease-smooth);
-}
-
-/* Keyframe animation synchronized with book sparkle */
-@keyframes magicFigureAppear {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translateY(15px) rotate(-10deg);
-  }
-  
-  25% {
-    opacity: 0.3;
-    transform: scale(0.6) translateY(8px) rotate(-5deg);
-  }
-  
-  50% {
-    /* Peak moment - synchronized with book sparkle peak */
-    opacity: 1;
-    transform: scale(1) translateY(0) rotate(0deg);
-  }
-  
-  75% {
-    opacity: 0.7;
-    transform: scale(1.1) translateY(-5px) rotate(5deg);
-  }
-  
-  100% {
-    opacity: 0;
-    transform: scale(0.3) translateY(-15px) rotate(10deg);
-  }
-}
-
-/* Additional floating movement for extra magic */
-.magic-figure-image::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 215, 0, 0.2) 0%,
-    rgba(58, 95, 205, 0.1) 50%,
-    transparent 100%
-  );
-  animation: magicGlow 2s ease-in-out infinite;
-  z-index: -1;
-}
-
-/* Glow animation that complements the main figure animation */
-@keyframes magicGlow {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.2);
-  }
-}
-
-/* Hover effect for enhanced interactivity */
-.hero__book:hover .magic-figure-image {
-  animation-duration: 1.5s; /* Speed up animation on hover */
-  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8))
-          drop-shadow(0 0 40px rgba(58, 95, 205, 0.6));
 }
 
 /* Mobile optimizations */
 @media (max-width: 767px) {
   .magic-figure-image {
-    width: 80px;
-    height: 80px;
-    top: -15px;
-    right: -20px;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .magic-figure-image--visible {
     filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5))
             drop-shadow(0 0 20px rgba(58, 95, 205, 0.3));
   }
@@ -104,29 +42,51 @@
 /* Tablet optimizations */
 @media (min-width: 768px) and (max-width: 1023px) {
   .magic-figure-image {
-    width: 100px;
-    height: 100px;
-    top: -18px;
-    right: -25px;
+    width: 140px;
+    height: 140px;
   }
 }
 
 /* Desktop optimizations */
 @media (min-width: 1024px) {
   .magic-figure-image {
-    width: 140px;
-    height: 140px;
-    top: -25px;
-    right: -35px;
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* Heritage sprite specific sizing */
+.magic-figure-image--heritage {
+  width: 210px;
+  height: 210px;
+}
+
+/* Mobile heritage sizing */
+@media (max-width: 767px) {
+  .magic-figure-image--heritage {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Tablet heritage sizing */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .magic-figure-image--heritage {
+    width: 180px;
+    height: 180px;
   }
 }
 
 /* Reduce animations for accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .magic-figure-image,
-  .magic-figure-image::before {
-    animation: none;
-    opacity: 0.7;
-    transform: scale(1);
+  .magic-figure-image {
+    transition: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  
+  .magic-figure-image--visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }

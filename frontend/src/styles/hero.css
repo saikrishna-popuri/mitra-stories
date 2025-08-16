@@ -296,6 +296,15 @@
   }
 }
 
+/* Synchronized sparkle animation for book cover */
+@keyframes sparkle-sync {
+  0% { left: -100%; } /* Sparkle starts off-screen left */
+  12.5% { left: -100%; } /* Stays off-screen until 0.75s into the cycle (0.75s / 6s = 12.5%) */
+  25% { left: 100%; }  /* Reaches right edge at 1.5s into the cycle (1.5s / 6s = 25%) */
+  99.9% { left: 100%; }   /* Stays at the right edge until almost the end of the cycle */
+  100% { left: -100%; }  /* Resets to off-screen left for the next iteration */
+}
+
 .hero__description {
   font-family: var(--font-body);
   font-size: clamp(1.125rem, 1.5vw, 1.25rem);
@@ -339,7 +348,7 @@
     rgba(255, 255, 255, 0.4),
     transparent
   );
-  transition: left 0.6s ease;
+  transition: left 0.5s ease;
 }
 
 .hero__ctas .btn--sparkle:hover::before {
@@ -406,7 +415,7 @@
   transform: translate(-50%, -50%);
   font-size: 3rem;
   color: var(--mitra-yellow);
-  animation: sparkle 2s ease-in-out infinite;
+  animation: sparkle-sync 6s linear infinite;
 }
 
 .book-spine {

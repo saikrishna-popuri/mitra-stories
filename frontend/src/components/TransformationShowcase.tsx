@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { Camera, Sparkles } from 'lucide-react';
 
-const TransformationShowcase: React.FC = () => {
-  const [activeStyle, setActiveStyle] = useState<'cartoonMagic' | 'heritage'>('cartoonMagic');
+interface TransformationShowcaseProps {
+  activeStyle: 'cartoonMagic' | 'heritage';
+  onStyleChange: (style: 'cartoonMagic' | 'heritage') => void;
+}
+
+const TransformationShowcase: React.FC<TransformationShowcaseProps> = ({ 
+  activeStyle, 
+  onStyleChange 
+}) => {
 
   const avatarStyles = {
     cartoonMagic: {
@@ -32,7 +39,7 @@ const TransformationShowcase: React.FC = () => {
   };
 
   const handleStyleChange = (style: 'cartoonMagic' | 'heritage') => {
-    setActiveStyle(style);
+    onStyleChange(style);
   };
 
   return (

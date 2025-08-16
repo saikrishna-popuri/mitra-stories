@@ -113,7 +113,9 @@ const StoriesSection: React.FC = () => {
     };
 
     fetchStories();
+  }, []);
 
+  useEffect(() => {
     // Intersection Observer for animations
     const observers = cardsRef.current.map((card, index) => {
       if (!card) return null;
@@ -140,7 +142,7 @@ const StoriesSection: React.FC = () => {
     return () => {
       observers.forEach(observer => observer?.disconnect());
     };
-  }, []);
+  }, [stories]);
 
   const handleStoryClick = (storyId: string, title: string) => {
     console.log(`Navigate to story: ${title} (${storyId})`);

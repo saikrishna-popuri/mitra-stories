@@ -29,7 +29,7 @@
   }
   
   .hero__container {
-    padding: var(--space-lg) 10px !important;
+    padding: 4px 10px var(--space-lg) !important;
     max-width: 100% !important;
   }
   

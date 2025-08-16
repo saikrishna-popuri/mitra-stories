@@ -406,6 +406,10 @@
     font-size: 12px !important;
     padding: 6px 12px !important;
   }
+
+  .transformation-showcase__sparkles {
+    display: none;
+  }
 }
 
 /* Desktop Styles */
@@ -447,5 +451,20 @@
   .transformation-showcase__avatar::before,
   .transformation-showcase__avatar-emoji {
     animation: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .sparkle--1 {
+    width: 14.4px;
+    height: 14.4px;
+  }
+  .sparkle--2 {
+    width: 10.8px;
+    height: 10.8px;
+  }
+  .sparkle--3 {
+    width: 12.6px;
+    height: 12.6px;
   }
 }

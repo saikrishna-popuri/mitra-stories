@@ -1,0 +1,13 @@
+{
+  "gpt": {
+    "split1": {
+      "prompt": "Create a 1x2 sprite sheet of the child in the reference image, pixar cartoon style avatars, each sprite cleanly fitting inside the grid. Left: [Standing, holding up a teddy bear, joyous smile, wearing sky-blue dungarees over sunshine-yellow T-shirt, tan sandals, Eye level full body, Bright studio lighting.] Right: [Sitting, hands on cheeks, mouth surprised \"O\", legs folded, toes curled, in moon-print PJs, full body, bright morning light.] Transparent background. No shadows or other objects visible in the frame.",
+      "params": {
+        "size": "1536x1024",
+        "quality": "medium",
+        "n": 1
+      }
+    }
+  }
+}
+
